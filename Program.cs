@@ -8,40 +8,22 @@ namespace ConsoleApp1
 {
     class Program
     {
-
-        delegate void EnemyAttack(Enemy enemy, PLAYER player);
-
-        public class Enemy
-        {
-            public int hp;
-            public int dam;
-        }
-
-        public class PLAYER
-        {
-            public int dam;
-            public int hp;
-        }
-
         static void Main(string[] args)
         {
-            PLAYER Player = new PLAYER() { hp = 3, dam = 1 };
-            Enemy Enemy = new Enemy() { hp = 3, dam = 5 };
+            Func<float> func1 = () => 0.1f;
+            Func<int, int, int> func2 = (a, b) => (a + b);
 
-            EnemyAttack attack = (enemy, player) =>
+            Action<int, int> act2 = (a, b) =>
             {
-                if(enemy.dam >= player.hp)
-                {
-                    Console.WriteLine("플레이어 사망");
-                }
-                else
-                {
-                    Console.WriteLine(player.hp - enemy.dam);
-
-                }
+                a = int.Parse(Console.ReadLine());
+                b = int.Parse(Console.ReadLine());
+                Console.WriteLine("a = {0}, b = {1}", a, b);
             };
 
-            attack(Enemy, Player);
+
+            act2(1, 3);
+            Console.WriteLine(func1());
+            Console.WriteLine(func2(1,5));
         }
     }
 }

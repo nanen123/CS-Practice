@@ -21,9 +21,9 @@ namespace ConsoleApp1
             };
 
 
-            act2(1, 3);
-            Console.WriteLine(func1());
-            Console.WriteLine(func2(1,5));
+            act2(1, 3); // a = 1, b = 3
+            Console.WriteLine(func1()); // 0.1
+            Console.WriteLine(func2(1,5)); // 6
         }
     }
 }
